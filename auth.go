@@ -4,7 +4,7 @@ import (
     "fmt"
     "log"
     "golang.org/x/crypto/ssh"
-    ldap "github.com/tonnerre/go-ldap"
+    ldap "github.com/go-ldap/ldap"
 )
 
 func AuthUserPass(conn ssh.ConnMetadata, password []byte) (*ssh.Permissions, error) {
