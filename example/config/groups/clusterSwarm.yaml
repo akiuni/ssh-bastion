@@ -1,0 +1,13 @@
+---
+lab1:
+    login_user:     "julien"
+    connect_path:   "192.168.69.201:22"
+    host_pubkeys:
+        - "data/pub/201/ssh_host_rsa_key.pub"
+        - "data/pub/201/ssh_host_ed25519_key.pub"
+lab2:
+    login_user:     "julien"
+    connect_path:   "192.168.69.202:22"
+    host_pubkeys:
+        - "data/pub/202/ssh_host_rsa_key.pub"
+        - "data/pub/202/ssh_host_ed25519_key.pub"

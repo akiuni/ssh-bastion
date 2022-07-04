@@ -1,13 +1,14 @@
 package main
 
 import (
-    "os"
-    "fmt"
-    "log"
-    "strings"
-    "io/ioutil"
-    "log/syslog"
-    "github.com/jessevdk/go-flags"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"log/syslog"
+	"os"
+	"strings"
+
+	"github.com/jessevdk/go-flags"
 )
 
 var config *SSHConfig
@@ -18,6 +19,7 @@ var opts struct {
 }
 
 func main() {
+
     _, err := flags.Parse(&opts)
     if err != nil {
         os.Exit(1)
@@ -42,7 +44,12 @@ func main() {
         panic(err)
     }
 
-    s.ListenAndServe(config.Global.ListenPath)
+    bind_protocol := "tcp"
+    if (config.Global.NoIP6Bind == true) {
+        bind_protocol = "tcp4"
+    }
+    s.ListenAndServe(bind_protocol,config.Global.ListenPath)
+    
 }
 
 func GetMOTD() (string) {

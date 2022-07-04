@@ -1,0 +1,54 @@
+global:
+    group_path:   "config/groups"
+    motd_path:      "data/motd"
+    log_path:       "data/logs"
+    host_keys:
+        - "data/keys/ssh_host_rsa_key"
+    auth_type:      "ldap"
+    ldap_server:    "dmu01.rsint.net:389"
+    ldap_domain:    "rsint.net"
+    pass_password:  false
+    listen_path:    "10.0.2.15:2222"
+groups:
+    - "cluster346"
+    - "clusterSwarm"
+servers:
+    lab-swarm1:
+        login_user:     "julien"
+        connect_path:   "192.168.69.201:22"
+        host_pubkeys:
+            - "data/pub/201/ssh_host_rsa_key.pub"
+            - "data/pub/201/ssh_host_ed25519_key.pub"
+    lab-swarm2:
+        login_user:     "julien"
+        connect_path:   "192.168.69.202:22"
+        host_pubkeys:
+            - "data/pub/202/ssh_host_rsa_key.pub"
+            - "data/pub/202/ssh_host_ed25519_key.pub"
+    outside-test:
+        login_user:     "jsimbola"
+        connect_path:   "185.13.36.205:993"
+        host_pubkeys:
+            - "data/pub/202/ssh_host_rsa_key.pub"
+            - "data/pub/202/ssh_host_ed25519_key.pub"
+
+acls:
+    development:
+        allow_servers:
+            - "lab-swarm1"
+            - "lab-swarm2"
+            - "ac-theia"
+        allow_groups:
+            - "cluster346"
+            - "clusterSwarm"
+    admin:
+        allow_servers:
+            - "lab-swarm1"
+        allow_groups:
+            - "clusterSwarm"
+users:
+    julien:
+        acl:                        "development"
+        authorized_keys_file:       "data/users/julien.authorized_keys"
+    simbola:
+        acl:                        "admin"

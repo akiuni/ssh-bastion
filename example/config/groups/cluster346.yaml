@@ -1,0 +1,32 @@
+---
+346lb1:
+    login_user:     "julien"
+    full_name:      "eu-west-2-346-lb-970"
+    connect_path:   "10.0.128.18:22"
+    host_pubkeys:
+        - "data/pub/201/ssh_host_rsa_key.pub"
+        - "data/pub/201/ssh_host_ed25519_key.pub"
+
+346lb2:
+    login_user:     "julien"
+    full_name:      "eu-west-2-346-lb-969"
+    connect_path:   "10.0.128.6:22"
+    host_pubkeys:
+        - "data/pub/201/ssh_host_rsa_key.pub"
+        - "data/pub/201/ssh_host_ed25519_key.pub"
+
+346waf1:
+    login_user:     "julien"
+    full_name:      "eu-west-2-346-waf-953"
+    connect_path:   "10.0.64.21:22"
+    host_pubkeys:
+        - "data/pub/201/ssh_host_rsa_key.pub"
+        - "data/pub/201/ssh_host_ed25519_key.pub"
+
+346waf2:
+    login_user:     "julien"
+    full_name:     "eu-west-2-346-waf-954"
+    connect_path:   "10.0.64.23:22"
+    host_pubkeys:
+        - "data/pub/201/ssh_host_rsa_key.pub"
+        - "data/pub/201/ssh_host_ed25519_key.pub"
